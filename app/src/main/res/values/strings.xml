@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">MeusGastos</string>
+    <string name="action_settings">Settings</string>
+    <string name="_350_00">350.00</string>
+    <string name="_31_12_2017">31/12/2017</string>
+    <string name="_45_1">45.1</string>
+    <string name="_48000">48000</string>
+    <string name="_9_876">9.876</string>
+    <string name="combust_vel">Combustível</string>
+    <string name="data_abastecimento">Data abastecimento</string>
+    <string name="gravar">Gravar</string>
+    <string name="litros_gastos">Litros gastos</string>
+    <string name="od_metro_km">Odômetro (Km)</string>
+    <string name="posto">Posto</string>
+    <string-array name="list_tipo_combustivel">
+        <item>-- Selecione --</item>
+        <item>Gasolina</item>
+        <item>Etanol</item>
+        <item>GNV</item>
+    </string-array>
+    <string-array name="list_posto">
+    <item>-- Selecione --</item>
+    <item>Walmart</item>
+    <item>Outro</item>
+        </string-array>
+    <string-array name="list_veiculo">
+        <item>-- Selecione --</item>
+        <item>Sandero</item>
+        <item>Outro</item>
+    </string-array>
+</resources>

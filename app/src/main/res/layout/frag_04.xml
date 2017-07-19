@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_blue_bright"
+    android:orientation="horizontal"
+    android:id="@+id/layFrag04">
+
+    <GridView
+        android:layout_marginTop="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:numColumns="6"
+        android:id="@+id/grvTotaisHeader"
+        android:stretchMode="columnWidth" />
+
+    <GridView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/grvTotaisHeader"
+        android:id="@+id/grvTotais"
+        android:fastScrollAlwaysVisible="true"
+        android:fastScrollEnabled="true"
+        android:numColumns="6"
+        tools:style="@android:style/Widget.Material.GridView"
+        android:stretchMode="columnWidth">
+    </GridView>
+
+    <TextView
+        android:id="@+id/tvFrag04"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="26dp"
+        android:text="TextView"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>
