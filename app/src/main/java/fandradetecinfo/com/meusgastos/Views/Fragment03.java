@@ -1,8 +1,7 @@
-package fandradetecinfo.com.meusgastos;
+package fandradetecinfo.com.meusgastos.Views;
 
 import android.app.Activity;
 import android.content.pm.ActivityInfo;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -10,14 +9,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
 
-public class Fragment04 extends Fragment {
+import fandradetecinfo.com.meusgastos.R;
+
+public class Fragment03 extends Fragment {
 
     private View view;
     private Map<Integer, String> mapCombustivel = new Hashtable<>();
@@ -28,13 +28,13 @@ public class Fragment04 extends Fragment {
         mapCombustivel.put(2, "Etanol");
         mapCombustivel.put(3, "GNV");
 
-        view = inflater.inflate(R.layout.frag_04, container, false);
+        view = inflater.inflate(R.layout.frag_03, container, false);
         return view;
     }
 
-    public static Fragment04 newInstance(String text) {
+    public static Fragment03 newInstance(String text) {
 
-        Fragment04 f = new Fragment04();
+        Fragment03 f = new Fragment03();
         Bundle b = new Bundle();
         b.putString("msg", text);
 
@@ -59,51 +59,51 @@ public class Fragment04 extends Fragment {
     private void criarHeader()
     {
         List<String> listHeader = new ArrayList<String>();
-        listHeader.add("Período");
+        listHeader.add("Data");
         listHeader.add("Veículo");
         listHeader.add("Combustivel");
-        listHeader.add("Pago");
+        listHeader.add("Km");
         listHeader.add("Litros");
-        listHeader.add("KM");
+        listHeader.add("Autonomia");
 
-        GridView gridViewHeader=(GridView) view.findViewById(R.id.grvTotaisHeader);
+        GridView gridViewHeader=(GridView) view.findViewById(R.id.grvConsumoHeader);
         gridViewHeader.setAdapter(null);
         gridViewHeader.setAdapter(new ArrayAdapter<String>(getActivity().getBaseContext(), R.layout.cell, listHeader));
     }
 
     private void carregarGrid()
     {
-        GridView gridView=(GridView) view.findViewById(R.id.grvTotais);
+        GridView gridView=(GridView) view.findViewById(R.id.grvConsumo);
         gridView.setAdapter(null);
         ArrayList<String> list=new ArrayList<String>();
         ArrayAdapter adapter=new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_item,list);
 
-        DBMeusGastos handler=new DBMeusGastos(getActivity().getBaseContext());//getting the context object
-        try
-        {
-            //Cursor c=handler.UpdateData();
-            Cursor c = handler.exibirTotais();
-
-            if(c.moveToFirst())
-            {
-                do
-                {
-                    list.add(c.getString(0));
-                    list.add(c.getString(1));
-                    list.add(mapCombustivel.get(c.getInt(2)));
-                    list.add(String.format("%.2f", c.getFloat(3)));
-                    list.add(String.format("%.1f", c.getFloat(4)));
-                    list.add(String.format("%.0f", c.getFloat(5)));
-                    gridView.setAdapter(adapter);
-                }while(c.moveToNext());
-            }
-            else
-            {
-                Toast.makeText(getActivity(), "No data found", Toast.LENGTH_LONG).show();
-            }
-        }catch(Exception e)
-        {
-            Toast.makeText(getActivity(), "No data found"+e.getMessage(), Toast.LENGTH_LONG).show();
-        }
+//        DBMeusGastos handler=new DBMeusGastos(getActivity().getBaseContext());//getting the context object
+//        try
+//        {
+//            //Cursor c=handler.UpdateData();
+//            Cursor c = handler.exibirConsumo();
+//
+//            if(c.moveToFirst())
+//            {
+//                do
+//                {
+//                    list.add(c.getString(1));
+//                    list.add(c.getString(2));
+//                    list.add(mapCombustivel.get(c.getInt(c.getColumnIndex("combustivel"))));
+//                    list.add(c.getString(c.getColumnIndex("km_percorridos")));
+//                    list.add(String.format("%.1f", c.getFloat(c.getColumnIndex("litros_gastos"))));
+//                    list.add(String.format("%.1f", c.getFloat(c.getColumnIndex("autonomia"))));
+//                    gridView.setAdapter(adapter);
+//                }while(c.moveToNext());
+//            }
+//            else
+//            {
+//                Toast.makeText(getActivity(), "No data found", Toast.LENGTH_LONG).show();
+//            }
+//        }catch(Exception e)
+//        {
+//            Toast.makeText(getActivity(), "No data found"+e.getMessage(), Toast.LENGTH_LONG).show();
+//        }
    }
 }

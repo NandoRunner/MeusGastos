@@ -12,6 +12,15 @@
     <string name="litros_gastos">Litros gastos</string>
     <string name="od_metro_km">Odômetro (Km)</string>
     <string name="posto">Posto</string>
+    <string name="salvar_registro">Salvar</string>
+    <string name="veiculo">Veículo</string>
+    <string name="valor_pago">Valor pago (R$)</string>
+    <string name="preco_do_litro">Preço do Litro (R$)</string>
+    <string name="large">Large</string>
+    <string name="medium">Medium</string>
+    <string name="medium2">Medium</string>
+    <string name="medium3">Medium</string>
+    <string name="textview">TextView</string>
     <string-array name="list_tipo_combustivel">
         <item>-- Selecione --</item>
         <item>Gasolina</item>

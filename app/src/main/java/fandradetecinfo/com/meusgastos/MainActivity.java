@@ -1,28 +1,20 @@
 package fandradetecinfo.com.meusgastos;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 
-import android.util.Log;
-import android.view.View;
+import fandradetecinfo.com.meusgastos.Views.Fragment01;
+import fandradetecinfo.com.meusgastos.Views.Fragment02;
+import fandradetecinfo.com.meusgastos.Views.Fragment03;
+import fandradetecinfo.com.meusgastos.Views.Fragment04;
 
-import android.widget.EditText;
-import android.widget.Spinner;
-import android.widget.Toast;
-
-import java.util.Date;
-
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends AppCompatActivity {
 
     public static String veiculo = "1";
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

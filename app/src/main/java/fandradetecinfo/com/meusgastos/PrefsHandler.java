@@ -8,9 +8,9 @@ import android.widget.Spinner;
 
 import fandradetecinfo.com.meusgastos.R;
 
-/**
- * Created by Fernando on 29/12/2016.
- */
+import fandradetecinfo.com.meusgastos.Models.Abastecimento;
+
+
 
 public class PrefsHandler {
 
@@ -25,49 +25,41 @@ public class PrefsHandler {
     }
 
     public void carregar(View v, String veiculo) {
-        String u = veiculo;
 
-        ((EditText) v.findViewById(R.id.txtPreco)).setText(String.format("%.3f", shp.getFloat("preco_litro"+u, 0)));
-        ((EditText) v.findViewById(R.id.txtPago)).setText(String.format("%.2f", shp.getFloat("valor_pago"+u, 0)));
-        ((EditText) v.findViewById(R.id.txtOdometro)).setText(String.valueOf(shp.getInt("odometro"+u, 0)));
-        ((EditText) v.findViewById(R.id.txtLitrosGastos)).setText(String.format("%.1f", shp.getFloat("litros_gastos"+u, 0)));
+        ((EditText) v.findViewById(R.id.txtPreco)).setText(String.format("%.3f", shp.getFloat("preco_litro"+ veiculo, 0)));
+        ((EditText) v.findViewById(R.id.txtPago)).setText(String.format("%.2f", shp.getFloat("valor_pago"+ veiculo, 0)));
+        ((EditText) v.findViewById(R.id.txtOdometro)).setText(String.valueOf(shp.getInt("odometro"+ veiculo, 0)));
+        ((EditText) v.findViewById(R.id.txtLitrosGastos)).setText(String.format("%.1f", shp.getFloat("litros_gastos"+ veiculo, 0)));
 
-        int p_posto = shp.getInt("posto"+u, 0);
-        int p_combustivel = shp.getInt("combustivel"+u, 0);
+        int p_posto = shp.getInt("posto"+ veiculo, 0);
+        int p_combustivel = shp.getInt("combustivel"+ veiculo, 0);
 
-        ((Spinner) v.findViewById(R.id.spinnerVeiculo)).setSelection(Integer.parseInt(veiculo));
         ((Spinner) v.findViewById(R.id.spinnerPosto)).setSelection(p_posto);
         ((Spinner) v.findViewById(R.id.spinnerCombustivel)).setSelection(p_combustivel);
 
     }
 
-    public void salvar(String veiculo, String posto, String combustivel, String preco_litro,
-                             String valor_pago, String odometro, String litros_gastos)
+    public void salvar(Abastecimento abastecimento, String litros_gastos)
     {
-        String u = veiculo;
+        String u = abastecimento.getId_veiculo();
         SharedPreferences.Editor editor = shp.edit();
-        editor.putInt("posto"+u, Integer.parseInt(posto));
-        editor.putInt("combustivel"+u, Integer.parseInt(combustivel));
-        editor.putFloat("preco_litro"+u, Float.parseFloat(preco_litro));
-        editor.putFloat("valor_pago"+u, Float.parseFloat(valor_pago));
-        editor.putInt("odometro"+u, Integer.parseInt(odometro));
+        editor.putInt("posto"+u, Integer.parseInt(abastecimento.getId_posto()));
+        editor.putInt("combustivel"+u, Integer.parseInt(abastecimento.getCombustivel()));
+        editor.putFloat("preco_litro"+u, Float.parseFloat(abastecimento.getPreco_litro()));
+        editor.putFloat("valor_pago"+u, Float.parseFloat(abastecimento.getValor_pago()));
+        editor.putInt("odometro"+u, Integer.parseInt(abastecimento.getOdometro()));
         editor.putFloat("litros_gastos"+u, Float.parseFloat(litros_gastos));
-        editor.commit();
+        editor.apply();
     }
 
-    public boolean registroAnteriorIdentico(String usuario, String peso, String gordura,
-                                            String hidratacao, String musculo, String osso)
+    public boolean registroAnteriorIdentico(Abastecimento abastecimento)
     {
-        String u = usuario;
-        if (!peso.equals(String.format("%.1f", shp.getFloat("peso"+u, 0)).replace(',', '.')))
+        String u = abastecimento.getId_veiculo();
+        if (!abastecimento.getId_posto().equals(shp.getInt("posto"+u, 0)))
             return false;
-        else if (!gordura.equals(String.format("%.1f", shp.getFloat("gordura"+u, 0)).replace(',', '.')))
+        else if (!abastecimento.getCombustivel().equals(shp.getInt("combustivel"+u, 0)))
             return false;
-        else if (!hidratacao.equals(String.format("%.1f", shp.getFloat("hidratacao"+u, 0)).replace(',', '.')))
-            return false;
-        else if (!musculo.equals(String.format("%.1f", shp.getFloat("musculo"+u, 0)).replace(',', '.')))
-            return false;
-        else if (!osso.equals(String.format("%.1f", shp.getFloat("osso"+u, 0)).replace(',', '.')))
+        else if (!abastecimento.getOdometro().equals(shp.getInt("odometro"+u, 0)))
             return false;
 
         return true;
