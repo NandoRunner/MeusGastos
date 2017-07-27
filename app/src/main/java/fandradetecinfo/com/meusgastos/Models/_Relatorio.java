@@ -16,7 +16,8 @@ public class _Relatorio extends _BaseModel implements Serializable  {
     {
         try
         {
-            String sql = "SELECT id, ifnull(data, 'n/a'), id_veiculo, id_posto, combustivel, preco_litro, valor_pago, "
+            String sql = "SELECT data, "
+                    + "combustivel, preco_litro, valor_pago, "
                     + " valor_pago/preco_litro as litrosAbastecidos "
                     + " FROM abastecimento "
                     + " WHERE id_veiculo = ?"
@@ -33,7 +34,7 @@ public class _Relatorio extends _BaseModel implements Serializable  {
     {
         try
         {
-            String sql = "SELECT id, data, id_veiculo, combustivel, km_percorridos, litros_gastos, "
+            String sql = "SELECT data, combustivel, km_percorridos, litros_gastos, "
                     + " km_percorridos/litros_gastos as autonomia "
                     + " FROM consumo "
                     + " WHERE id_veiculo = ?"

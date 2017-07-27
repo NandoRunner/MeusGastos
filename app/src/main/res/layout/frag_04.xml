@@ -5,13 +5,25 @@
     android:layout_height="match_parent"
     android:background="@android:color/holo_blue_bright"
     android:orientation="horizontal"
-    android:id="@+id/layFrag04">
+    android:id="@+id/layFrag04"
+    android:descendantFocusability="blocksDescendants">
 
+
+    <TextView
+        android:id="@+id/tvFrag04"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="26sp"
+	android:layout_marginTop="75dp"
+        android:text="@string/textview"
+        android:layout_centerHorizontal="true" />
+	
     <GridView
         android:layout_marginTop="10dp"
-        android:layout_alignParentTop="true"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/tvFrag04"
         android:layout_centerHorizontal="true"
         android:numColumns="6"
         android:id="@+id/grvTotaisHeader"
@@ -27,15 +39,9 @@
         android:fastScrollEnabled="true"
         android:numColumns="6"
         tools:style="@android:style/Widget.Material.GridView"
-        android:stretchMode="columnWidth">
-    </GridView>
+        android:stretchMode="columnWidth"
+	android:focusable="false"
+        android:focusableInTouchMode="false">
+     </GridView>
 
-    <TextView
-        android:id="@+id/tvFrag04"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="26dp"
-        android:text="TextView"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
 </RelativeLayout>

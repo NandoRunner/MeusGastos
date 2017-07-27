@@ -5,15 +5,26 @@
     android:layout_height="match_parent"
     android:background="@android:color/holo_blue_bright"
     android:orientation="horizontal"
-    android:id="@+id/layThirdFrag">
+    android:id="@+id/layThirdFrag"
+    android:descendantFocusability="blocksDescendants">
 
+    <TextView
+        android:id="@+id/tvFrag03"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="26sp"
+	android:layout_marginTop="75dp"
+        android:text="@string/textview"
+        android:layout_centerHorizontal="true" />
+	
     <GridView
         android:layout_marginTop="10dp"
-        android:layout_alignParentTop="true"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/tvFrag03"
         android:layout_centerHorizontal="true"
-        android:numColumns="6"
+        android:numColumns="5"
         android:id="@+id/grvConsumoHeader"
         android:stretchMode="columnWidth" />
 
@@ -25,17 +36,11 @@
         android:id="@+id/grvConsumo"
         android:fastScrollAlwaysVisible="true"
         android:fastScrollEnabled="true"
-        android:numColumns="6"
+        android:numColumns="5"
         tools:style="@android:style/Widget.Material.GridView"
-        android:stretchMode="columnWidth">
-    </GridView>
+        android:stretchMode="columnWidth"
+	android:focusable="false"
+        android:focusableInTouchMode="false">
+     </GridView>
 
-    <TextView
-        android:id="@+id/tvFragThird"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="26sp"
-        android:text="@string/textview"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
 </RelativeLayout>

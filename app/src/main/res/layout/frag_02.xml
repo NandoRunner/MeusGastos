@@ -5,19 +5,28 @@
     android:layout_height="match_parent"
     android:background="@android:color/holo_blue_bright"
     android:orientation="horizontal"
-    android:id="@+id/laySecondFrag">
+    android:id="@+id/laySecondFrag"
+    android:descendantFocusability="blocksDescendants">
 
+    <TextView
+        android:id="@+id/tvFrag02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="26sp"
+	android:layout_marginTop="75dp"
+        android:text="@string/textview"
+        android:layout_centerHorizontal="true" />
     <GridView
         android:layout_marginTop="10dp"
-        android:layout_alignParentTop="true"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/tvFrag02"
         android:layout_centerHorizontal="true"
-        android:id="@+id/grvAbastecimentoHeader"
         android:numColumns="5"
-        android:stretchMode="columnWidth"
-        android:horizontalSpacing="5dp"
-        android:scrollbars="horizontal|vertical" />
+	android:id="@+id/grvAbastecimentoHeader"
+
+        android:stretchMode="columnWidth" />
 
     <GridView
         android:layout_width="match_parent"
@@ -27,20 +36,13 @@
         android:id="@+id/grvAbastecimento"
         android:fastScrollAlwaysVisible="true"
         android:fastScrollEnabled="true"
-        tools:style="@android:style/Widget.Material.GridView"
         android:numColumns="5"
-        android:stretchMode="columnWidth"
-        android:horizontalSpacing="5dp"
-        android:scrollbars="horizontal|vertical">
+	tools:style="@android:style/Widget.Material.GridView"
+        android:stretchMode="columnWidth"        
+	android:focusable="false"
+        android:focusableInTouchMode="false">    
     </GridView>
 
-    <TextView
-        android:id="@+id/tvFragSecond"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="26dp"
-        android:text="TextView"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+
 
 </RelativeLayout>

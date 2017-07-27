@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
                 case 3:
                     return Fragment04.newInstance("Totais, Instance 1");
                 default:
-                    return Fragment02.newInstance("Abastecimento, Instance 1");
+                    return Fragment01.newInstance("Abastecimento, Instance 1");
             }
         }
 

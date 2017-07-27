@@ -9,14 +9,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.Hashtable;
 import java.util.List;
-import java.util.Map;
 
-import fandradetecinfo.com.meusgastos.Controllers.AbastecimentoController;
+
 import fandradetecinfo.com.meusgastos.Controllers._RelatorioController;
+import fandradetecinfo.com.meusgastos.MainActivity;
 import fandradetecinfo.com.meusgastos.R;
 import fandradetecinfo.com.meusgastos.Relatorio;
 
@@ -24,13 +24,9 @@ public class Fragment02 extends Fragment {
 
     private _RelatorioController controller;
     private View vw;
-    private Map<Integer, String> mapCombustivel = new Hashtable<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        mapCombustivel.put(1, "Gasolina");
-        mapCombustivel.put(2, "Etanol");
-        mapCombustivel.put(3, "GNV");
 
         vw = inflater.inflate(R.layout.frag_02, container, false);
 		
@@ -63,11 +59,20 @@ public class Fragment02 extends Fragment {
         }
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+    }
+
     private void montarGrid()
     {
         List<String> listHeader = new ArrayList<String>();
         listHeader.add("Data");
-        //listHeader.add("Veículo");
         //listHeader.add("Posto");
         listHeader.add("Tipo");
         listHeader.add("(R$) / Litro");
