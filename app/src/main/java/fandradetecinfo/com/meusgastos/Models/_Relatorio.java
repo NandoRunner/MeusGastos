@@ -18,7 +18,7 @@ public class _Relatorio extends _BaseModel implements Serializable  {
         {
             String sql = "SELECT data, "
                     + "combustivel, preco_litro, valor_pago, "
-                    + " valor_pago/preco_litro as litrosAbastecidos "
+                    + " round(valor_pago/preco_litro, 1) as litrosAbastecidos "
                     + " FROM abastecimento "
                     + " WHERE id_veiculo = ?"
                     + " ORDER BY datetime(data) DESC";
@@ -35,7 +35,7 @@ public class _Relatorio extends _BaseModel implements Serializable  {
         try
         {
             String sql = "SELECT data, combustivel, km_percorridos, litros_gastos, "
-                    + " km_percorridos/litros_gastos as autonomia "
+                    + " round(km_percorridos/litros_gastos, 1) as autonomia "
                     + " FROM consumo "
                     + " WHERE id_veiculo = ?"
                     + " ORDER BY datetime(data) DESC";
@@ -51,8 +51,9 @@ public class _Relatorio extends _BaseModel implements Serializable  {
     public Cursor exibirTotais()
     {
         try {
-            String sql = "SELECT strftime('%Y-%m', a.data) as yr_mn, a.id_veiculo, a.combustivel, sum(a.valor_pago) as totalPago, "
-                    + " sum(a.valor_pago/a.preco_litro) as TotalLitros, sum(km_percorridos) as KM "
+            String sql = "SELECT strftime('%Y-%m', a.data) as yr_mn, a.id_veiculo, a.combustivel, " +
+                    "sum(a.valor_pago) as totalPago, "
+                    + " round(sum(a.valor_pago/a.preco_litro), 1) as TotalLitros, sum(km_percorridos) as KM "
                     + " FROM abastecimento a "
                     + " INNER JOIN consumo m on m.data = a.data "
                     + " GROUP BY yr_mn, a.id_veiculo, a.combustivel "
