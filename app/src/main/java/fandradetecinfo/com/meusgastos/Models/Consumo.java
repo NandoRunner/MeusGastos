@@ -78,21 +78,4 @@ public class Consumo extends _BaseModel implements Serializable  {
         this.litros_gastos = litros_gastos.replace(',', '.');
     }
 
-    public Cursor exibirConsumo(String veiculo)
-    {
-        try
-        {
-            String sql = "SELECT id, data, id_veiculo, combustivel, km_percorridos, litros_gastos, "
-                    + " km_percorridos/litros_gastos as autonomia "
-                    + " FROM consumo "
-                    + " WHERE id_veiculo = ?"
-                    + " ORDER BY datetime(data) DESC";
-
-            String args[] = { veiculo };
-            return buscarCursor(sql, args);
-        } catch (Exception ex) {
-            throw ex;
-        }
-
-    }
 }

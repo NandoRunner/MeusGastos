@@ -36,15 +36,15 @@ public class MainActivity extends AppCompatActivity {
             switch (pos) {
 
                 case 0:
-                    return Fragment01.newInstance("Cadastro, Instance 1");
+                    return Fragment01.newInstance("Cadastro");
                 case 1:
-                    return Fragment02.newInstance("Abastecimento, Instance 1");
+                    return Fragment02.newInstance("Abastecimento veídulo: ");
                 case 2:
-                    return Fragment03.newInstance("Consumo, Instance 1");
+                    return Fragment03.newInstance("Consumo veículo: ");
                 case 3:
-                    return Fragment04.newInstance("Totais, Instance 1");
+                    return Fragment04.newInstance("Totais");
                 default:
-                    return Fragment01.newInstance("Abastecimento, Instance 1");
+                    return Fragment02.newInstance("Abastecimento veículo: ");
             }
         }
 

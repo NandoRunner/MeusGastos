@@ -26,9 +26,6 @@ public class ConsumoController extends _BaseController {
     private Spinner spCombustivel;
     private EditText etLitrosGastos;
 
-
-//    private Map<Integer, String> mapSexo = new Hashtable<>();
-
     public ConsumoController(Activity activity) {
 
         this.activity = activity;
@@ -39,8 +36,6 @@ public class ConsumoController extends _BaseController {
         this.spCombustivel = (Spinner) activity.findViewById(R.id.spinnerCombustivel);
         this.etLitrosGastos = (EditText) activity.findViewById(R.id.txtLitrosGastos);
 
-//        mapSexo.put(1, "M");
-//        mapSexo.put(0, "F");
     }
 
     public Consumo getModel() {
@@ -53,7 +48,7 @@ public class ConsumoController extends _BaseController {
 
     public void pegarDoFormulario()
     {
-        model.setData(etData.getText().toString());
+        model.setDataTratada(etData.getText().toString());
         model.setId_veiculo(String.valueOf(spVeiculo.getSelectedItemPosition()));
         model.setCombustivel(String.valueOf(spCombustivel.getSelectedItemPosition()));
         model.setLitros_gastos(etLitrosGastos.getText().toString());

@@ -40,13 +40,13 @@
             android:layout_width="115dp"
             android:layout_height="match_parent"
             android:orientation="vertical">
-	    
-        <TextView
-            android:text="@string/data_abastecimento"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView1"
-            android:textColor="@android:color/background_light" />
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/data_abastecimento"
+                android:textColor="@android:color/background_light" />
 
 
 

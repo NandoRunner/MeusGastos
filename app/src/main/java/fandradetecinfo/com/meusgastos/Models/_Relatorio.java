@@ -51,9 +51,22 @@ public class _Relatorio extends _BaseModel implements Serializable  {
     public Cursor exibirTotais()
     {
         try {
-            String sql = "SELECT strftime('%Y-%m', a.data) as yr_mn, a.id_veiculo, a.combustivel, " +
-                    "sum(a.valor_pago) as totalPago, "
+            String sql = "SELECT strftime('%Y-%m', a.data) as yr_mn, a.id_veiculo id_veiculo, a.combustivel combustivel, "
+                    + " sum(a.valor_pago) as totalPago, "
                     + " round(sum(a.valor_pago/a.preco_litro), 1) as TotalLitros, sum(km_percorridos) as KM "
+                    + " FROM abastecimento a "
+                    + " INNER JOIN consumo m on m.data = a.data "
+                    + " GROUP BY yr_mn, a.id_veiculo, a.combustivel "
+                    + " UNION SELECT strftime('%Y', a.data) || '-Tot' as yr_mn, a.id_veiculo, a.combustivel, "
+                    + " sum(a.valor_pago) as totalPago, "
+                    + " round(sum(a.valor_pago/a.preco_litro), 1) as TotalLitros, sum(km_percorridos) as KM "
+                    + " FROM abastecimento a "
+                    + " INNER JOIN consumo m on m.data = a.data "
+                    + " GROUP BY yr_mn, a.id_veiculo, a.combustivel "
+                    + " UNION SELECT strftime('%Y', a.data) || '-Med' as yr_mn, a.id_veiculo, a.combustivel, "
+                    + " sum(a.valor_pago) / count(distinct(strftime('%Y-%m', a.data))) as totalPago, "
+                    + " round(sum(a.valor_pago/a.preco_litro) / count(distinct(strftime('%Y-%m', a.data))), 1) as TotalLitros, "
+                    + " sum(km_percorridos) / count(distinct(strftime('%Y-%m', a.data))) as KM "
                     + " FROM abastecimento a "
                     + " INNER JOIN consumo m on m.data = a.data "
                     + " GROUP BY yr_mn, a.id_veiculo, a.combustivel "

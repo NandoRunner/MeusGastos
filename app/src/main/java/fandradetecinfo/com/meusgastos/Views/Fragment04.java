@@ -31,6 +31,8 @@ public class Fragment04 extends Fragment {
 
         vw = inflater.inflate(R.layout.frag_04, container, false);
 		
+        TextView tv = (TextView) vw.findViewById(R.id.tvFrag04);
+        tv.setText(getArguments().getString("msg"));
 		this.controller = new _RelatorioController(getActivity());
 				
         return vw;
