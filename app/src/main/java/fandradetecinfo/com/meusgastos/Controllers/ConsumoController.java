@@ -33,7 +33,7 @@ public class ConsumoController extends _BaseController {
 
         this.etData = (EditText) activity.findViewById(R.id.txtData);
         this.spVeiculo = (Spinner) activity.findViewById(R.id.spinnerVeiculo);
-        this.spCombustivel = (Spinner) activity.findViewById(R.id.spinnerCombustivel);
+        //this.spCombustivel = (Spinner) activity.findViewById(R.id.spinnerCombustivel);
         this.etLitrosGastos = (EditText) activity.findViewById(R.id.txtLitrosGastos);
 
     }
@@ -50,7 +50,7 @@ public class ConsumoController extends _BaseController {
     {
         model.setDataTratada(etData.getText().toString());
         model.setId_veiculo(String.valueOf(spVeiculo.getSelectedItemPosition()));
-        model.setCombustivel(String.valueOf(spCombustivel.getSelectedItemPosition()));
+        //model.setCombustivel(String.valueOf(spCombustivel.getSelectedItemPosition()));
         model.setLitros_gastos(etLitrosGastos.getText().toString());
     }
 
@@ -58,7 +58,7 @@ public class ConsumoController extends _BaseController {
     {
         if (!validarCampo(etData)) return false;
         if (!validarLista(spVeiculo, "Veículo", 1)) return false;
-        if (!validarLista(spCombustivel, "Combustível", 1)) return false;
+        //if (!validarLista(spCombustivel, "Combustível", 1)) return false;
         return validarCampo(etLitrosGastos);
     }
 
@@ -66,6 +66,11 @@ public class ConsumoController extends _BaseController {
     {
         int dif = Integer.parseInt(odometro) - Integer.parseInt(ultimoOdometro);
         model.setKm_percorridos(String.valueOf(dif));
+    }
+
+    public void buscarUltimoCombustivel(String ultimoCombustivel)
+    {
+        model.setCombustivel(ultimoCombustivel);
     }
 
     public void inserir()

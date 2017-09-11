@@ -163,12 +163,16 @@ public class RegistroActivity extends AppCompatActivity
                 return false;
             }
             controller.buscarUltimoOdometro();
+            controller.buscarUltimoCombustivel();
             controller.inserir();
 
             consumoControl.pegarDoFormulario();
             
             consumoControl.calcularKmPercorridos(controller.getModel().getOdometro(),
                     controller.getModel().getUltimoOdometro());
+
+            consumoControl.buscarUltimoCombustivel(controller.getModel().getUltimoCombustivel());
+
             consumoControl.inserir();
 
             EditText myTxt = (EditText) findViewById(R.id.txtLitrosGastos);
