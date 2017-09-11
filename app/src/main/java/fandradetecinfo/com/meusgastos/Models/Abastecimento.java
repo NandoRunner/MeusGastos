@@ -155,9 +155,10 @@ public class Abastecimento extends _BaseModel implements Serializable  {
     {
         try
         {
-            String sql = "SELECT last(combustivel) "
+            String sql = "SELECT combustivel "
                     + " FROM abastecimento "
-                    + " WHERE id_veiculo = ?";
+                    + " WHERE id in "
+                    + " (SELECT MAX(id) FROM abastecimento WHERE id_veiculo = ?)";
             String args[] = { veiculo };
             return buscarCursor(sql, args);
         } catch (Exception ex) {
