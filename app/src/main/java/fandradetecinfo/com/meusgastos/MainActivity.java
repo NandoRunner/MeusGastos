@@ -11,6 +11,7 @@ import fandradetecinfo.com.meusgastos.Views.Fragment01;
 import fandradetecinfo.com.meusgastos.Views.Fragment02;
 import fandradetecinfo.com.meusgastos.Views.Fragment03;
 import fandradetecinfo.com.meusgastos.Views.Fragment04;
+import fandradetecinfo.com.meusgastos.Views.Fragment05;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -43,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
                     return Fragment03.newInstance("Consumo veículo: ");
                 case 3:
                     return Fragment04.newInstance("Totais");
+                case 4:
+                    return Fragment05.newInstance("Compara");
                 default:
                     return Fragment02.newInstance("Abastecimento veículo: ");
             }
@@ -50,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            return 4;
+            return 5;
         }
     }
 

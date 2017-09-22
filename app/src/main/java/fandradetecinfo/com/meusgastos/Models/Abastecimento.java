@@ -35,6 +35,10 @@ public class Abastecimento extends _BaseModel implements Serializable  {
         return id;
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public Abastecimento(Context ctx) {
         super(ctx);
         this.table = TABLE_NAME;
@@ -136,13 +140,13 @@ public class Abastecimento extends _BaseModel implements Serializable  {
         }
     }
 
-    public Cursor buscarUltimoOdometro(String veiculo)
+    public Cursor buscarUltimosDados(String veiculo)
     {
         try
         {
-            String sql = "SELECT ifnull(max(odometro), '0') "
+            String sql = "SELECT id, odometro "
                     + " FROM abastecimento "
-                    + " WHERE id_veiculo = ?";
+                    + " WHERE id = (SELECT MAX(id) FROM abastecimento WHERE id_veiculo = ?)";
             String args[] = { veiculo };
             return buscarCursor(sql, args);
         } catch (Exception ex) {

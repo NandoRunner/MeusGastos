@@ -157,38 +157,40 @@ public class AbastecimentoController extends _BaseController {
         return lstRegistro;
     }
 
-    public void buscarUltimoOdometro()
+    public void buscarUltimosDados()
     {
         model.open();
-        Cursor c = model.buscarUltimoOdometro(MainActivity.veiculo);
+        Cursor c = model.buscarUltimosDados(MainActivity.veiculo);
 
         if(c.moveToFirst())
         {
-            model.setUltimoOdometro(c.getString(0));
+            model.setId(c.getLong(0));
+            model.setUltimoOdometro(c.getString(1));
         }
         else
         {
+            model.setId(0);
             model.setUltimoOdometro("0");
         }
         c.close();
         model.close();
     }
 
-    public void buscarUltimoCombustivel()
-    {
-        model.open();
-        Cursor c = model.buscarUltimoCombustivel(MainActivity.veiculo);
-
-        if(c.moveToFirst())
-        {
-            model.setUltimoCombustivel(c.getString(0));
-        }
-        else
-        {
-            model.setUltimoCombustivel("0");
-        }
-        c.close();
-        model.close();
-    }
+//    public void buscarUltimoCombustivel()
+//    {
+//        model.open();
+//        Cursor c = model.buscarUltimoCombustivel(MainActivity.veiculo);
+//
+//        if(c.moveToFirst())
+//        {
+//            model.setUltimoCombustivel(c.getString(0));
+//        }
+//        else
+//        {
+//            model.setUltimoCombustivel("0");
+//        }
+//        c.close();
+//        model.close();
+//    }
 
 }

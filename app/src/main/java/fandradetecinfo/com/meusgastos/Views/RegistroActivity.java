@@ -162,8 +162,7 @@ public class RegistroActivity extends AppCompatActivity
                 controller.alertarRegistroAnteriorIdentico();
                 return false;
             }
-            controller.buscarUltimoOdometro();
-            controller.buscarUltimoCombustivel();
+            controller.buscarUltimosDados();
             controller.inserir();
 
             consumoControl.pegarDoFormulario();
@@ -171,7 +170,7 @@ public class RegistroActivity extends AppCompatActivity
             consumoControl.calcularKmPercorridos(controller.getModel().getOdometro(),
                     controller.getModel().getUltimoOdometro());
 
-            consumoControl.buscarUltimoCombustivel(controller.getModel().getUltimoCombustivel());
+            consumoControl.getModel().setId_abastecimento(controller.getModel().getId());
 
             consumoControl.inserir();
 

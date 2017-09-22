@@ -40,7 +40,7 @@ public class _RelatorioController extends _BaseController {
         try
         {
             Cursor c;
-            int maxcol = 5;
+            int maxCol = 5;
 
             switch (rel)
             {
@@ -52,9 +52,14 @@ public class _RelatorioController extends _BaseController {
                     c = model.exibirConsumo(MainActivity.veiculo);
                     break;
 
-                default:
+                case Totais:
                     c = model.exibirTotais();
-                    maxcol = 6;
+                    maxCol = 6;
+                    break;
+
+                default:
+                    c = model.exibirCompara();
+                    maxCol = 6;
                     break;
             }
 
@@ -62,7 +67,7 @@ public class _RelatorioController extends _BaseController {
             {
                 do
                 {
-                    for (int i = 0; i < maxcol; i++) {
+                    for (int i = 0; i < maxCol; i++) {
 
 						if (c.getColumnName(i).equals("combustivel"))
 							list.add(mapCombustivel.get(Integer.valueOf(c.getString(i))));

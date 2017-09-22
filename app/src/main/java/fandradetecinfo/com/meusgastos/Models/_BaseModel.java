@@ -31,6 +31,9 @@ public class _BaseModel {
     public static final String TABLE_CREATE_4 = "CREATE TABLE IF NOT EXISTS posto "
             + " (id INTEGER PRIMARY KEY AUTOINCREMENT, nome TEXT)";
 
+
+    public static final String TABLE_ALTER_2 = "ALTER TABLE consumo ADD COLUMN id_abastecimento INTEGER";
+
     protected DataBaseHelper dbhelper;
     protected Context context;
     protected SQLiteDatabase db;
@@ -67,6 +70,16 @@ public class _BaseModel {
     public _BaseModel open() {
         //Create and/or open a database that will be used for reading and writing.
         db = dbhelper.getWritableDatabase();
+//        try
+//        {
+//            db.rawQuery("SELECT id_abastecimento from consumo", null);
+//        }
+//        catch (Exception e)
+//        {
+//            e.printStackTrace();
+//
+//            db.execSQL(TABLE_ALTER_2);
+//        }
         return this;
     }
 
@@ -112,8 +125,11 @@ public class _BaseModel {
 //            String sqltemp = "update consumo set data = '2017-08-18' where data = '18/08/2017'";
 //            db.execSQL(sqltemp);
 //
-//            sqltemp = "update consumo set data = '2017-08-08' where data = '08/08/2017'";
-//            db.execSQL(sqltemp);
+//            String sqltemp = "update consumo "
+//            + " set id_abastecimento = "
+//                + "(select max(id) from abastecimento where abastecimento.data < consumo.data)"
+//            + " where km_percorridos <> 0 ";
+//           db.execSQL(sqltemp);
 
             return db.rawQuery(sql, args, null);
         } catch (Exception e) {
