@@ -39,13 +39,13 @@ public class MainActivity extends AppCompatActivity {
                 case 0:
                     return Fragment01.newInstance("Cadastro");
                 case 1:
-                    return Fragment02.newInstance("Abastecimento veídulo: ");
+                    return Fragment02.newInstance("Abastecimento veículo: ");
                 case 2:
                     return Fragment03.newInstance("Consumo veículo: ");
                 case 3:
                     return Fragment04.newInstance("Totais");
                 case 4:
-                    return Fragment05.newInstance("Compara");
+                    return Fragment05.newInstance("Comparação");
                 default:
                     return Fragment02.newInstance("Abastecimento veículo: ");
             }

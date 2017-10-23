@@ -175,7 +175,7 @@ public class RegistroActivity extends AppCompatActivity
             consumoControl.inserir();
 
             EditText myTxt = (EditText) findViewById(R.id.txtLitrosGastos);
-            prefs.salvar(controller.getModel(), myTxt.getText().toString());
+            prefs.salvar(controller.getModel(), consumoControl.getModel());
 
 			Log.i("LogX", "Registro gravado!");
 			return true;

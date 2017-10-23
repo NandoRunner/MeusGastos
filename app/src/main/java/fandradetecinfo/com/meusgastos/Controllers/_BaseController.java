@@ -31,6 +31,7 @@ public class _BaseController {
         mapCombustivel.put(1, "G");
         mapCombustivel.put(2, "E");
         mapCombustivel.put(3, "GNV");
+        mapCombustivel.put(4, "GA");
     }
 
     protected boolean validarCampo(EditText edt) {

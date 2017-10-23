@@ -36,7 +36,7 @@ public class _Relatorio extends _BaseModel implements Serializable  {
         try
         {
             String sql = "SELECT a.data, a.combustivel, c.km_percorridos, c.litros_gastos, "
-                    //+ " a.id || ' - ' || c.id_abastecimento as autonomia "
+                    //+ " c.id_abastecimento as autonomia "
                     + " round(c.km_percorridos/c.litros_gastos, 1) as autonomia "
                     + " FROM abastecimento a "
                     + " INNER JOIN consumo c on c.id_abastecimento = a.id "

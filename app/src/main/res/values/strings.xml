@@ -21,11 +21,13 @@
     <string name="medium2">Medium</string>
     <string name="medium3">Medium</string>
     <string name="textview">TextView</string>
+    <string name="km_h">KM/h</string>
     <string-array name="list_tipo_combustivel">
         <item>-- Selecione --</item>
         <item>Gasolina</item>
         <item>Etanol</item>
         <item>GNV</item>
+        <item>G. Aditivada</item>
     </string-array>
     <string-array name="list_posto">
     <item>-- Selecione --</item>

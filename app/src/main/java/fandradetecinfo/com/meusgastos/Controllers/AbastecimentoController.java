@@ -115,8 +115,9 @@ public class AbastecimentoController extends _BaseController {
 
         model.open();
 
-        model.insert(content);
+        final long ret = model.insert(content);
 
+        //model.setId(ret);
         model.close();
     }
 

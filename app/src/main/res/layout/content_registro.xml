@@ -37,72 +37,82 @@
         android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="115dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textView1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/data_abastecimento"
-            android:textColor="@color/colorBlack" />
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="33dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/data_abastecimento"
+                android:textColor="@color/colorBlack" />
 
-        <TextView
-            android:text="@string/veiculo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView2"
-            android:textColor="@color/colorBlack" />
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="33dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/veiculo"
+                android:textAlignment="inherit"
+                android:textColor="@color/colorBlack" />
 
-        <TextView
-            android:text="@string/posto"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView3"
-            android:textColor="@color/colorBlack" />
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="33dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/posto"
+                android:textColor="@color/colorBlack" />
 
-        <TextView
-            android:text="@string/combust_vel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView4"
-            android:textColor="@color/colorBlack" />
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="33dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/combust_vel"
+                android:textColor="@color/colorBlack" />
 
-        <TextView
-            android:text="@string/preco_do_litro"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView5"
-            android:textColor="@color/colorBlack" />
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="33dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/preco_do_litro"
+                android:textColor="@color/colorBlack" />
 
-        <TextView
-            android:text="@string/valor_pago"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView6"
-            android:textColor="@android:color/background_light" />
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="33dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/valor_pago"
+                android:textColor="@color/colorBlack" />
 
-        <TextView
-            android:text="@string/od_metro_km"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView7"
-            android:textColor="@color/colorBlack" />
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="33dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/od_metro_km"
+                android:textColor="@color/colorBlack" />
 
-        <TextView
-            android:text="@string/litros_gastos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView8"
-            android:textColor="@color/colorBlack" />
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="33dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/litros_gastos"
+                android:textColor="@color/colorBlack" />
 
-        <TextView
-            android:text="KM/h"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView9"
-            android:textColor="@color/colorBlack" />
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="33dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/km_h"
+                android:textColor="@color/colorBlack" />
 	    
 	</LinearLayout>
 

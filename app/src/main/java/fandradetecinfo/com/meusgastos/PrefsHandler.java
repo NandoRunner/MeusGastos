@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import fandradetecinfo.com.meusgastos.Models.Consumo;
 import fandradetecinfo.com.meusgastos.R;
 
 import fandradetecinfo.com.meusgastos.Models.Abastecimento;
@@ -30,6 +31,7 @@ public class PrefsHandler {
         ((EditText) v.findViewById(R.id.txtPago)).setText(String.format("%.2f", shp.getFloat("valor_pago"+ veiculo, 0)));
         ((EditText) v.findViewById(R.id.txtOdometro)).setText(String.valueOf(shp.getInt("odometro"+ veiculo, 0)));
         ((EditText) v.findViewById(R.id.txtLitrosGastos)).setText(String.format("%.1f", shp.getFloat("litros_gastos"+ veiculo, 0)));
+        ((EditText) v.findViewById(R.id.txtKmHora)).setText(String.format("%.1f", shp.getFloat("km_hora"+ veiculo, 0)));
 
         int p_posto = shp.getInt("posto"+ veiculo, 0);
         int p_combustivel = shp.getInt("combustivel"+ veiculo, 0);
@@ -39,7 +41,7 @@ public class PrefsHandler {
 
     }
 
-    public void salvar(Abastecimento abastecimento, String litros_gastos)
+    public void salvar(Abastecimento abastecimento, Consumo consumo)
     {
         String u = abastecimento.getId_veiculo();
         SharedPreferences.Editor editor = shp.edit();
@@ -48,7 +50,8 @@ public class PrefsHandler {
         editor.putFloat("preco_litro"+u, Float.parseFloat(abastecimento.getPreco_litro()));
         editor.putFloat("valor_pago"+u, Float.parseFloat(abastecimento.getValor_pago()));
         editor.putInt("odometro"+u, Integer.parseInt(abastecimento.getOdometro()));
-        editor.putFloat("litros_gastos"+u, Float.parseFloat(litros_gastos));
+        editor.putFloat("litros_gastos"+u, Float.parseFloat(consumo.getLitros_gastos()));
+        editor.putFloat("km_hora"+u, Float.parseFloat(consumo.getKm_hora()));
         editor.apply();
     }
 

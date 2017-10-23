@@ -21,8 +21,8 @@ public class _BaseModel {
 
 
     public static final String TABLE_CREATE_2 = "CREATE TABLE IF NOT EXISTS consumo "
-            + " (id INTEGER PRIMARY KEY AUTOINCREMENT, data DATETIME, id_veiculo INTEGER, "
-            + "combustivel INTEGER, km_percorridos INTEGER, litros_gastos DOUBLE)";
+            + " (id INTEGER PRIMARY KEY AUTOINCREMENT, km_percorridos INTEGER, litros_gastos DOUBLE, "
+            + "id_abastecimento INTEGER, km_hora DOUBLE)";
 
     public static final String TABLE_CREATE_3 = "CREATE TABLE IF NOT EXISTS veiculo "
             + " (id INTEGER PRIMARY KEY AUTOINCREMENT, modelo TEXT, fabricante TEXT, ano TEXT, "
@@ -122,13 +122,19 @@ public class _BaseModel {
             //String sqltemp = "update abastecimento set data = '2017-07-24' where data = '24/07/2017'";
             //db.execSQL(sqltemp);
 
+
+
+//            String sqltemp = "delete from abastecimento where id = (select max(id) from abastecimento)";
+//            db.execSQL(sqltemp);
+//            sqltemp = "delete from consumo where id = (select max(id) from consumo)";
+//            db.execSQL(sqltemp);
+
 //            String sqltemp = "update consumo set data = '2017-08-18' where data = '18/08/2017'";
 //            db.execSQL(sqltemp);
 //
 //            String sqltemp = "update consumo "
-//            + " set id_abastecimento = "
-//                + "(select max(id) from abastecimento where abastecimento.data < consumo.data)"
-//            + " where km_percorridos <> 0 ";
+//            + " set id_abastecimento = 42"
+//            + " where id_abastecimento = 43 ";
 //           db.execSQL(sqltemp);
 
             return db.rawQuery(sql, args, null);
