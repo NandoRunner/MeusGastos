@@ -74,6 +74,13 @@ public class _Relatorio extends _BaseModel implements Serializable  {
                     + " FROM abastecimento a "
                     + " INNER JOIN consumo m on m.id_abastecimento = a.id "
                     + " GROUP BY yr_mn, a.id_veiculo, a.combustivel "
+                + " UNION SELECT strftime('%Y', a.data) || '-Tot' as yr_mn, a.id_veiculo, 0 as combustivel, "
+                    + " sum(a.valor_pago) as totalPago, "
+                    + " round(sum(a.valor_pago/a.preco_litro), 1) as TotalLitros, sum(km_percorridos) as KM "
+                    + " FROM abastecimento a "
+//                    + " INNER JOIN consumo m on m.data = a.data "
+                    + " INNER JOIN consumo m on m.id_abastecimento = a.id "
+                    + " GROUP BY yr_mn, a.id_veiculo "
                     + " ORDER BY yr_mn DESC";
             return buscarCursor(sql);
         } catch (Exception ex) {
@@ -86,8 +93,8 @@ public class _Relatorio extends _BaseModel implements Serializable  {
         try {
             String sql = "SELECT strftime('%Y', a.data) || '-Tot' as yr_mn, a.id_veiculo, a.combustivel, "
                     + " round(sum(km_percorridos) / sum (m.litros_gastos), 1) as autonomia, "
-                    + " sum(a.preco_litro * m.litros_gastos) / sum(m.km_percorridos) as Reais_KM, "
-                    + " sum(m.km_percorridos) / sum(m.km_percorridos / m.km_hora) as KM_hora "
+                    + " round(sum(a.preco_litro * m.litros_gastos) / sum(m.km_percorridos), 3) as Reais_KM, "
+                    + " round(sum(m.km_percorridos) / sum(m.km_percorridos / m.km_hora), 1) as KM_hora "
                     + " FROM abastecimento a "
 //                    + " INNER JOIN consumo m on m.data = a.data "
                     + " INNER JOIN consumo m on m.id_abastecimento = a.id "

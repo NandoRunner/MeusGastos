@@ -28,6 +28,7 @@ public class _BaseController {
         mapPosto.put(1, "W");
         mapPosto.put(2, "O");
 
+        mapCombustivel.put(0, "TUDO");
         mapCombustivel.put(1, "G");
         mapCombustivel.put(2, "E");
         mapCombustivel.put(3, "GNV");
