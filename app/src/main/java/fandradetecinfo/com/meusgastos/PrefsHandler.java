@@ -12,7 +12,6 @@ import fandradetecinfo.com.meusgastos.R;
 import fandradetecinfo.com.meusgastos.Models.Abastecimento;
 
 
-
 public class PrefsHandler {
 
     private String MINHAS_PREFS = "MEUSGASTOS_PREFS";

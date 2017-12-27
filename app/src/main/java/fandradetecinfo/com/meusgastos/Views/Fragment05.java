@@ -14,6 +14,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import fandradetecinfo.com.meusgastos.BackupHandler;
 import fandradetecinfo.com.meusgastos.Controllers._RelatorioController;
 import fandradetecinfo.com.meusgastos.R;
 import fandradetecinfo.com.meusgastos.Relatorio;
@@ -86,6 +87,9 @@ public class Fragment05 extends Fragment {
         GridView gridView=(GridView) vw.findViewById(R.id.grvCompara);
 
         controller.carregarGrid(listHeader, gridViewHeader, gridView, Relatorio.Compara);
+
+        BackupHandler bkp = new BackupHandler();
+        bkp.gravar(true);
 
 
    }

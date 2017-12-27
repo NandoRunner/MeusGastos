@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+import fandradetecinfo.com.meusgastos.BackupHandler;
 import fandradetecinfo.com.meusgastos.Controllers._RelatorioController;
 import fandradetecinfo.com.meusgastos.MainActivity;
 import fandradetecinfo.com.meusgastos.R;
@@ -89,6 +90,7 @@ public class Fragment04 extends Fragment {
 
         controller.carregarGrid(listHeader, gridViewHeader, gridView, Relatorio.Totais);
 
-
+        BackupHandler bkp = new BackupHandler();
+        bkp.carregar();
    }
 }
