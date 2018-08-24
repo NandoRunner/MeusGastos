@@ -19,7 +19,6 @@ public class _BaseModel {
             + " id_posto INTEGER, combustivel INTEGER, preco_litro DOUBLE, valor_pago DOUBLE, "
             + "odometro INTEGER)";
 
-
     public static final String TABLE_CREATE_2 = "CREATE TABLE IF NOT EXISTS consumo "
             + " (id INTEGER PRIMARY KEY AUTOINCREMENT, km_percorridos INTEGER, litros_gastos DOUBLE, "
             + "id_abastecimento INTEGER, km_hora DOUBLE)";
@@ -30,7 +29,6 @@ public class _BaseModel {
 
     public static final String TABLE_CREATE_4 = "CREATE TABLE IF NOT EXISTS posto "
             + " (id INTEGER PRIMARY KEY AUTOINCREMENT, nome TEXT)";
-
 
     public static final String TABLE_ALTER_2 = "ALTER TABLE consumo ADD COLUMN id_abastecimento INTEGER";
 

@@ -28,6 +28,11 @@ public class BackupHandler {
         this.bkpFile = "mysdfile2.txt";
     }
 
+    public BackupHandler(String arqName)
+    {
+        this.bkpFile =  arqName;
+    }
+
     public void gravar(boolean arqExistente) {
 
         try {
